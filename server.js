@@ -13,7 +13,7 @@ app.post("/newtodo", async (req, res) => {
 
   try {
     db.newTodo(newTodo).then(result => {
-      console.log(result);
+      console.log(result.rows[0]);
       res.json(result.rows[0]);
     });
   } catch (err) {
