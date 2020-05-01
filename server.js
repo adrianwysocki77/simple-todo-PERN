@@ -30,7 +30,6 @@ app.get("/alltodos", (req, res) => {
 });
 
 //get a todo
-
 app.get("/todo/:id", (req, res) => {
   const { id } = req.params;
   db.selectedTodo(id)
@@ -84,11 +83,3 @@ if (process.env.NODE_ENV === "production") {
 app.listen(process.env.PORT || port, () =>
   console.log(`Server running on port ${port}`)
 );
-
-// let secrets;
-//
-// if (process.env.NODE_ENV === "production") {
-//     secrets = process.env;
-// } else {
-//     secrets = require("./secrets");
-// }
