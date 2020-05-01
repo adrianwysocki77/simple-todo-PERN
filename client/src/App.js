@@ -3,7 +3,6 @@ import "./App.css";
 
 //components
 import InputTodo from "./components/InputTodo";
-import EditTodo from "./components/EditTodo";
 import ListTodos from "./components/ListTodos";
 
 class App extends Component {
@@ -12,7 +11,6 @@ class App extends Component {
       <Fragment>
         <div className="container">
           <InputTodo />
-          <EditTodo />
           <ListTodos />
         </div>
       </Fragment>
