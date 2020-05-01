@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const db = require("./sql/db");
 const port = 5000;
+const path = require("path");
 
 app.use(express.json()); // req.body
 
