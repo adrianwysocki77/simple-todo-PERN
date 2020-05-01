@@ -22,8 +22,12 @@ exports.selectedTodo = function(id) {
 };
 
 exports.updateTodo = function(description, id) {
-  return db.query(`UPDATE todo SET description = $1 WHERE todo_id = $2 `, [
-    description,
-    id
-  ]);
+  return db.query(
+    `UPDATE todo SET description = $1 WHERE todo_id = $2 RETURNING *`,
+    [description, id]
+  );
+};
+
+exports.deleteTodo = function(id) {
+  return db.query(`DELETE FROM todo WHERE todo_id = $1 RETURNING *`, [id]);
 };

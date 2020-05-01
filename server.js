@@ -46,8 +46,8 @@ app.get("/todo/:id", (req, res) => {
 app.put("/todo/:id", (req, res) => {
   const { id } = req.params;
   const { description } = req.body;
-  console.log("description: ", description);
-  console.log("id: ", id);
+  // console.log("description: ", description);
+  // console.log("id: ", id);
 
   db.updateTodo(description, id)
     .then(result => {
@@ -59,6 +59,17 @@ app.put("/todo/:id", (req, res) => {
 });
 
 //delete a todo
+app.delete("/todo/:id", (req, res) => {
+  const { id } = req.params;
+  db.deleteTodo(id)
+    .then(result => {
+      console.log(result);
+      res.json("successfully deleted!");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
 
 app.listen(process.env.PORT || port, () =>
   console.log(`Server running on port ${port}`)
